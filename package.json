@@ -1,0 +1,12 @@
+{
+  "name": "7.navigated-nation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "sass": "node-sass -w sass/main.scss style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

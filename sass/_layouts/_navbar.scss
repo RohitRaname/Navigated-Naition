@@ -1,0 +1,162 @@
+.nav {
+  height: 7rem;
+  font-size: $font-size-md;
+  padding: 2.4rem 3.2rem;
+  padding-right: 4.8rem;
+
+  @include flex-center;
+  justify-content: space-between;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  &__btn {
+    height: 2.2rem;
+    width: 3.4rem;
+    border: none;
+    background: transparent;
+    @include flex-center;
+    position: fixed;
+    top: 2.4rem;
+    right: 3.2rem;
+    cursor: pointer;
+    z-index: 250;
+
+    &-icon {
+      background: $color-grey-light;
+      width: 100%;
+      height: 1px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+
+      // depend on nearest parent position element
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      display: inline-block;
+      background: $color-grey-light;
+      transition: all 0.5s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__overlay {
+    @include overlay;
+    transform: translateX(-100%);
+    z-index: 100;
+    transition: all 1s 0.1s;
+  }
+
+  &__list {
+    @include fixed;
+    @include flex-column;
+    transform: translateX(-100%);
+    transition: all 1s 0.3s;
+    z-index: 200;
+  }
+  &__item {
+    flex: 1;
+    @include flex-center;
+    transform: translateX(-100%);
+
+    &--1 {
+      background: $color-primary-dark;
+      transition: all 0.5s 0.45s;
+    }
+    &--2 {
+      background: $color-secondary-dark;
+      transition: all 0.5s 0.4s;
+    }
+    &--3 {
+      background: $color-tertiary-dark;
+      transition: all 0.5s 0.3s;
+    }
+    &--4 {
+      background: $color-dark-primary-dark;
+      transition: all 0.5s 0.2s;
+    }
+    &--5 {
+      background: $color-dark;
+      transition: all 0.5s 0.1s;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      font-size: 2rem;
+      color: $color-white;
+      letter-spacing: 1.4px;
+    }
+  }
+
+  &__open &__btn {
+    // btn
+    &-icon {
+      background: transparent;
+    }
+    &::before,
+    &::after {
+      top: 50%;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__open &__overlay {
+    transform: translateX(0);
+    transition: all 0.5s;
+  }
+
+  &__open &__list {
+    transform: translateX(0%);
+    transition: all 0.5s;
+  }
+
+  &__open &__item {
+    transform: translateX(0%);
+    &--1 {
+      transition: all 0.6s 0.1s;
+    }
+    &--2 {
+      transition: all 0.6s 0.2s;
+    }
+    &--3 {
+      transition: all 0.6s 0.3s;
+    }
+    &--4 {
+      transition: all 0.6s 0.4s;
+    }
+    &--5 {
+      transition: all 0.6s 0.5s;
+    }
+  }
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $color-grey-light;
+  border-bottom: 1px solid $color-grey-light;
+  padding-bottom: 0.2rem;
+}
